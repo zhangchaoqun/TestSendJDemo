@@ -1,8 +1,14 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
 
 android {
     compileSdkVersion 25
     buildToolsVersion "26.0.1"
+
+
+    lintOptions {
+        abortOnError false
+    }
 
     defaultConfig {
         minSdkVersion 15
@@ -20,6 +26,14 @@ android {
         }
     }
 }
+
+publish {
+    userOrg = 'zhangchaoqun'      // bintray注册的用户名
+    groupId = 'com.bintray.library'
+    artifactId = 'test_demo_package'// bintray创建的package
+    publishVersion = '1.0'
+}
+
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
